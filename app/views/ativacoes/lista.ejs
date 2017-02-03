@@ -1,5 +1,45 @@
+
 <html>
     <body>
-        <h1>Acessando a lista de ativações</h1>
+        <table>
+            <tr>
+                <td><b>STATUS</b></td>
+                <td><b>ATIVAÇÕES</b></td>
+            </tr>
+            <%for(var i=0; i < lista.length;i++){
+            %>
+                <tr>
+                    <td><%=lista[i].STATUS%></td>
+                    <td><%=lista[i].ATIVACAO%></td>
+                </tr>
+            <%}%>
+            <%  var palitado = 0; for(var i=0; i < lista.length;i++){
+
+                    palitado = palitado+lista[i].ATIVACAO;
+            }%>
+
+            <tr>
+                 <td><b>PALITADO</b></td>
+                 <td><b>VALIDADO</b></td>
+            </tr>
+            <tr>
+                <%palitado = (palitado-lista[0].ATIVACAO)%>
+                <td><%=palitado%></td>
+                <td><%=(lista[6].ATIVACAO+lista[3].ATIVACAO)%></td>
+            </tr>
+            <tr>
+                <td></td>
+                <%var percent = Math.round((lista[6].ATIVACAO*100)/palitado)%>
+                <td><b><%=percent +"%"%></b></td>
+            </tr>
+
+        </table>
+            <script>
+                setTimeout("reloadPagina();",6000);
+    function reloadPagina() {
+        console.log("enviando");
+        location.reload();
+}
+            </script>
     </body>
 </html>
