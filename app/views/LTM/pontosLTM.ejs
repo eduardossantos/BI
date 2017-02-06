@@ -1,0 +1,37 @@
+
+<html>
+    <body>
+        <table>
+            <tr>
+                <td><b>IDRESGATE  |</b></td>
+<td><b>PARENT_ORDER_ID  |</b></td>
+<td><b>PONTOS_RECEBIDO_LTM  |</b></td>
+<td><b>PONTOS_LOJA  |</b></td>
+<td><b>DIFERENÇA  |</b></td>
+<td><b>DATA  |</b></td>
+<td><b>DATA PEDIDO  |</b></td>
+
+</tr>
+<%for(var i=0; i < lista.length;i++){
+%>
+    <tr>
+        <td><%=lista[i].idResgate%></td>
+        <td><%=lista[i].parent_order_id%></td>
+        <td><%=lista[i].pontosRecebidoApiLTM%></td>
+        <td><%=lista[i].pontosNaLoja%></td>
+        <td><%=Math.round(lista[i].diferenca)%></td>
+        <td><%=new Date(lista[i].data).toISOString().replace(/T/, ' ').replace(/\..+/, '')%></td>
+        <td><%=new Date(lista[i].dataPedido).toISOString().replace(/T/, ' ').replace(/\..+/, '')%></td>
+    </tr>
+        <%}%>
+
+</table>
+<script>
+    setTimeout("reloadPagina();",36000);
+function reloadPagina() {
+    console.log("enviando");
+    location.reload();
+}
+</script>
+</body>
+</html>
